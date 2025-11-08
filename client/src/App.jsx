@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
-import Header from './components/Header';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
-import Footer from './components/Footer';
 import './App.css';
 
 function App() {
     const [profile, setProfile] = useState(null);
     const [experience, setExperience] = useState([]);
     const [projects, setProjects] = useState([]);
+    const [activeTab, setActiveTab] = useState('about');
 
     useEffect(() => {
         fetch('http://localhost:3001/api/profile')
@@ -32,15 +31,63 @@ function App() {
         return <div className="loading">Loading...</div>;
     }
 
+    const handleGithubClick = () => {
+        window.open(profile.github, '_blank', 'noopener,noreferrer');
+    };
+
+    const renderContent = () => {
+        switch (activeTab) {
+            case 'about':
+                return <Hero profile={profile} />;
+            case 'experience':
+                return <Experience experience={experience} />;
+            case 'projects':
+                return <Projects projects={projects} />;
+            default:
+                return <Hero profile={profile} />;
+        }
+    };
+
     return (
         <div className="app">
-            <Header profile={profile} />
             <main className="main-content">
-                <Hero profile={profile} />
-                <Experience experience={experience} />
-                <Projects projects={projects} />
+                <div className="hero-header">
+                    <img src={profile.photo} alt={profile.name} className="profile-photo" />
+                    <h1 className="name">{profile.name}</h1>
+                </div>
+                <nav className="nav">
+                    <a
+                        href="#about"
+                        className={activeTab === 'about' ? 'active' : ''}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('about'); }}
+                    >
+                        About
+                    </a>
+                    <a
+                        href="#experience"
+                        className={activeTab === 'experience' ? 'active' : ''}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
+                    >
+                        Experience
+                    </a>
+                    <a
+                        href="#projects"
+                        className={activeTab === 'projects' ? 'active' : ''}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('projects'); }}
+                    >
+                        Projects
+                    </a>
+                    <a
+                        href="#github"
+                        onClick={(e) => { e.preventDefault(); handleGithubClick(); }}
+                    >
+                        GitHub
+                    </a>
+                </nav>
+                <div className="content-area">
+                    {renderContent()}
+                </div>
             </main>
-            <Footer profile={profile} />
         </div>
     );
 }

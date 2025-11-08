@@ -12,13 +12,17 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Serve static files from public directory
+app.use('/static', express.static(path.join(__dirname, 'public')));
+
 // API routes
 app.get('/api/profile', (req, res) => {
     res.json({
-        name: 'Your Name',
+        name: 'Aryan Vasudevan',
         title: 'Software Engineer',
         location: 'Your City',
         bio: "I'm a software engineer passionate about building great products.",
+        photo: 'http://localhost:3001/static/profile.png',
         email: 'your.email@example.com',
         github: 'https://github.com/yourusername',
         twitter: 'https://twitter.com/yourusername',
