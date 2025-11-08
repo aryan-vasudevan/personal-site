@@ -1,5 +1,3 @@
-import './Hero.css';
-
 function Hero({ profile }) {
     return (
         <div className="hero-content">

@@ -24,9 +24,9 @@ app.get('/api/profile', (req, res) => {
         bio: "I'm a software engineer passionate about building great products.",
         photo: 'http://localhost:3001/static/profile.png',
         email: 'your.email@example.com',
-        github: 'https://github.com/yourusername',
+        github: 'https://github.com/aryan-vasudevan',
         twitter: 'https://twitter.com/yourusername',
-        linkedin: 'https://linkedin.com/in/yourusername'
+        linkedin: 'https://linkedin.com/in/aryan-vasudevan'
     });
 });
 
