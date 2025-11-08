@@ -1,0 +1,24 @@
+.hero {
+    padding: 40px 0;
+    margin-bottom: 60px;
+}
+
+.hero-title {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+}
+
+.hero-location {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.hero-bio {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #1a1a1a;
+    max-width: 600px;
+}

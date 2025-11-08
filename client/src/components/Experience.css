@@ -1,0 +1,52 @@
+.experience {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.experience-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.company {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a1a1a;
+}
+
+.period {
+    font-size: 14px;
+    color: #666;
+}
+
+.role {
+    font-size: 15px;
+    color: #666;
+}
+
+.description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #1a1a1a;
+}
