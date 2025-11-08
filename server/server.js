@@ -21,7 +21,7 @@ app.get('/api/profile', (req, res) => {
         name: 'Aryan Vasudevan',
         title: 'Software Engineer',
         location: 'Toronto',
-        bio: "I'm a software engineer passionate about building great products.",
+        bio: "Hey! Glad you're here. I'm Aryan, a passionate software engineer based in Toronto, with a love for building anything and everything. Let's play badminton sometime!",
         photo: 'http://localhost:3001/static/profile.png',
         email: 'your.email@example.com',
         github: 'https://github.com/aryan-vasudevan',

@@ -5,7 +5,7 @@
 }
 
 .main-content {
-    max-width: 900px;
+    width: 900px;
     margin: 0 auto;
     padding: 60px 20px 0;
     flex: 1;
@@ -75,17 +75,51 @@
     margin-bottom: 24px;
 }
 
-.hero-title {
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
 .tag {
     margin-bottom: 24px;
 }
 
 .hero-bio {
     line-height: 1.7;
+    white-space: pre-line;
+}
+
+.inline-tag {
+    margin: 0 2px;
+    vertical-align: baseline;
+    padding: 2px 8px;
+    font-size: 16px;
+}
+
+.inline-tag-link {
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.inline-tag-link:hover {
+    background-color: #e5e5e5;
+}
+
+.social-footer {
+    display: flex;
+    gap: 16px;
+    margin-top: auto;
+    padding: 32px 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.social-icon {
+    color: #666;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    color: #1a1a1a;
 }
 
 .loading {
