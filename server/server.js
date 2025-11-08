@@ -34,17 +34,31 @@ app.get('/api/experience', (req, res) => {
     res.json([
         {
             id: 1,
-            company: 'Current Company',
-            role: 'Software Engineer',
-            period: '2023 - Present',
-            description: 'Working on exciting projects and building innovative solutions.'
+            company: 'Roboflow (Y Combinator S20)',
+            role: 'Machine Learning Intern, Contributor, Growth',
+            period: 'June 2025 - Aug 2025',
+            description: 'Drove user growth initiatives through hands-on testing, content creation, and technical documentation. Authored 12+ comprehensive project guides reaching 30,000+ users. Built app templates for RF-DETR models and developed YOLOv13 notebooks with Google Colab compatibility.'
         },
         {
             id: 2,
-            company: 'Previous Company',
-            role: 'Junior Developer',
-            period: '2021 - 2023',
-            description: 'Developed web applications and contributed to various projects.'
+            company: 'IgnitionHacks',
+            role: 'Judge, Organizer',
+            period: 'June 2025 - Aug 2025',
+            description: 'Organized and judged at one of Canada\'s largest recurring university hackathons with 500+ annual participants. Evaluated projects for Roboflow Computer Vision prize track and provided technical mentorship to participants.'
+        },
+        {
+            id: 3,
+            company: 'BestBrains Learning Centre',
+            role: 'Coding Instructor',
+            period: 'June 2025 - Aug 2025',
+            description: 'Taught web development fundamentals including HTML, CSS, and JavaScript. Instructed Python programming concepts and introduced visual programming with Scratch to younger students.'
+        },
+        {
+            id: 4,
+            company: 'TopChild Learning Centre',
+            role: 'Software Engineer, Functions Tutor',
+            period: 'Oct 2024 - Present',
+            description: 'Integrated AI generated questions into an online quiz feature built with Microsoft webservices. Designed an application to automate question making process in Python using openai and openpyxl. Taught Advanced Functions and challenging math concepts.'
         }
     ]);
 });

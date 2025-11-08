@@ -85,10 +85,10 @@
 }
 
 .inline-tag {
-    margin: 0 2px;
+    margin: 2px 0;
     vertical-align: baseline;
-    padding: 2px 8px;
-    font-size: 16px;
+    padding: 0 4px;
+    font-size: inherit;
 }
 
 .inline-tag-link {
