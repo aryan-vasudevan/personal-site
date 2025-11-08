@@ -1,9 +1,9 @@
 function Hero({ profile }) {
     return (
         <div className="hero-content">
-            <p className="hero-intro">
-                {profile.title} {profile.location}
-            </p>
+            <h2 className="section-title">About</h2>
+            <p className="hero-title">{profile.title}</p>
+            <span className="tag">{profile.location}</span>
             <p className="hero-bio">{profile.bio}</p>
         </div>
     );

@@ -20,7 +20,7 @@ app.get('/api/profile', (req, res) => {
     res.json({
         name: 'Aryan Vasudevan',
         title: 'Software Engineer',
-        location: 'Your City',
+        location: 'Toronto',
         bio: "I'm a software engineer passionate about building great products.",
         photo: 'http://localhost:3001/static/profile.png',
         email: 'your.email@example.com',

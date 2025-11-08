@@ -51,39 +51,43 @@ function App() {
     return (
         <div className="app">
             <main className="main-content">
-                <div className="hero-header">
-                    <img src={profile.photo} alt={profile.name} className="profile-photo" />
-                    <h1 className="name">{profile.name}</h1>
+                <div className="header-nav-container">
+                    <div className="hero-header">
+                        <img src={profile.photo} alt={profile.name} className="profile-photo" />
+                        <h1 className="name">{profile.name}</h1>
+                    </div>
+                    <nav className="nav">
+                        <a
+                            href="#about"
+                            className={activeTab === 'about' ? 'tag active' : 'tag'}
+                            onClick={(e) => { e.preventDefault(); setActiveTab('about'); }}
+                        >
+                            About
+                        </a>
+                        <a
+                            href="#experience"
+                            className={activeTab === 'experience' ? 'tag active' : 'tag'}
+                            onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
+                        >
+                            Experience
+                        </a>
+                        <a
+                            href="#projects"
+                            className={activeTab === 'projects' ? 'tag active' : 'tag'}
+                            onClick={(e) => { e.preventDefault(); setActiveTab('projects'); }}
+                        >
+                            Projects
+                        </a>
+                        <a
+                            href="#github"
+                            className="tag"
+                            onClick={(e) => { e.preventDefault(); handleGithubClick(); }}
+                        >
+                            GitHub
+                        </a>
+                    </nav>
                 </div>
-                <nav className="nav">
-                    <a
-                        href="#about"
-                        className={activeTab === 'about' ? 'active' : ''}
-                        onClick={(e) => { e.preventDefault(); setActiveTab('about'); }}
-                    >
-                        About
-                    </a>
-                    <a
-                        href="#experience"
-                        className={activeTab === 'experience' ? 'active' : ''}
-                        onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
-                    >
-                        Experience
-                    </a>
-                    <a
-                        href="#projects"
-                        className={activeTab === 'projects' ? 'active' : ''}
-                        onClick={(e) => { e.preventDefault(); setActiveTab('projects'); }}
-                    >
-                        Projects
-                    </a>
-                    <a
-                        href="#github"
-                        onClick={(e) => { e.preventDefault(); handleGithubClick(); }}
-                    >
-                        GitHub
-                    </a>
-                </nav>
+                <hr className="content-divider" />
                 <div className="content-area">
                     {renderContent()}
                 </div>
