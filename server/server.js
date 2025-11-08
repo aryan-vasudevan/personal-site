@@ -36,7 +36,7 @@ app.get('/api/experience', (req, res) => {
             id: 1,
             company: 'Roboflow (Y Combinator S20)',
             role: 'Machine Learning Intern, Contributor, Growth',
-            period: 'June 2025 - Aug 2025',
+            period: 'June 2025 - Present',
             description: 'Drove user growth initiatives through hands-on testing, content creation, and technical documentation. Authored 12+ comprehensive project guides reaching 30,000+ users. Built app templates for RF-DETR models and developed YOLOv13 notebooks with Google Colab compatibility.'
         },
         {
@@ -67,24 +67,30 @@ app.get('/api/projects', (req, res) => {
     res.json([
         {
             id: 1,
-            title: 'Project One',
-            description: 'A cool project that does something amazing.',
-            technologies: ['React', 'Node.js', 'MongoDB'],
-            link: 'https://github.com/yourusername/project-one'
+            title: 'AutoClose',
+            description: 'Close your door... autonomously',
+            technologies: ['Swift', 'C++', 'Xcode', 'Roboflow', 'ESP32'],
+            demo: 'http://localhost:3001/static/autoclose-demo.mp4',
+            github: 'https://github.com/aryan-vasudevan/door-closer-esp32',
+            elaboration: 'I got tired of people not closing my door when I asked : /—It\'s an ESP32 microcontroller connected to a motor that automatically closes the door when it detects that it\'s open using an iOS app and a CoreML vision model trained with Roboflow.'
         },
         {
             id: 2,
-            title: 'Project Two',
-            description: 'Another interesting project with great features.',
-            technologies: ['Python', 'Django', 'PostgreSQL'],
-            link: 'https://github.com/yourusername/project-two'
+            title: 'Eye Spy',
+            description: 'An AR solution to finding your glasses, all contained in an iOS app',
+            technologies: ['Swift', 'XCode', 'CoreML'],
+            demo: 'http://localhost:3001/static/eyespy-demo.mp4',
+            github: 'https://github.com/aryan-vasudevan/eye-spy',
+            elaboration: 'Losing your glasses is the worst. This app uses ARKit and a CoreML model on an iOS app to help you find your glasses by scanning your surroundings with your phone\'s camera.'
         },
         {
             id: 3,
-            title: 'Project Three',
-            description: 'An open-source contribution that made an impact.',
-            technologies: ['TypeScript', 'React', 'Express'],
-            link: 'https://github.com/yourusername/project-three'
+            title: 'DetectionSmoother',
+            description: 'Create prod-level demos for computer vision models',
+            technologies: ['Roboflow', 'Python'],
+            demo: 'http://localhost:3001/static/detectionsmoother-demo.mp4',
+            github: 'https://github.com/aryan-vasudevan/detectionsmoother',
+            elaboration: 'During my internship at Roboflow, I built an open-source tool for smoothing object detection results to create more polished demos and presentations.'
         }
     ]);
 });

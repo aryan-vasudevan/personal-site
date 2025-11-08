@@ -8,7 +8,13 @@ function App() {
     const [profile, setProfile] = useState(null);
     const [experience, setExperience] = useState([]);
     const [projects, setProjects] = useState([]);
-    const [activeTab, setActiveTab] = useState('about');
+    const [activeTab, setActiveTab] = useState(() => {
+        return localStorage.getItem('activeTab') || 'about';
+    });
+
+    useEffect(() => {
+        localStorage.setItem('activeTab', activeTab);
+    }, [activeTab]);
 
     useEffect(() => {
         fetch('http://localhost:3001/api/profile')
