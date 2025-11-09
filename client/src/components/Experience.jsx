@@ -66,7 +66,6 @@ function Experience({ experience }) {
 
     return (
         <section id="experience" className="experience">
-            <h2 className="section-title">Experience</h2>
             <div className="experience-list">
                 {experience.map((job) => (
                     <div key={job.id} className="experience-item">

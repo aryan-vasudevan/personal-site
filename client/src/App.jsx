@@ -120,7 +120,7 @@ function App() {
                 </div>
                 <p className="hero-bio" style={{ width: '100%' }}>{renderBio(profile.bio)}</p>
                 <hr className="content-divider" style={{ marginTop: '36px', marginBottom: '36px' }} />
-                <nav className="nav" style={{ marginBottom: '32px', width: '100%' }}>
+                <nav className="nav" style={{ marginBottom: '12px', width: '100%' }}>
                     <a
                         href="#gallery"
                         className={activeTab === 'gallery' ? 'tag active' : 'tag'}

@@ -24,11 +24,6 @@ function Projects({ projects }) {
 
     return (
         <section className="projects">
-            <h2 className="section-title">Projects</h2>
-            <p className="hero-bio">
-                Here are some of the projects I've made. Let's build something awesome at a hackathon sometime!
-            </p>
-
             <div className="carousel-container">
                 <button
                     className="carousel-arrow carousel-arrow-left"
