@@ -78,7 +78,7 @@ app.get('/api/projects', (req, res) => {
             title: 'LogiCraft',
             technologies: ['Java', 'Spigot API', 'Minecraft'],
             demo: 'http://localhost:3001/static/logicraft-demo.mp4',
-            github: 'https://github.com/aryan-vasudevan/logicraft',
+            github: 'https://github.com/aryan-vasudevan/detect-smooth',
             elaboration: 'Hackathon winner! Kids love Minecraft (me too), so why not teach them coding through it? This mod is hands-on and fun, teaching bitwise operation and logics with Minecraft redstone.'
         },
         {

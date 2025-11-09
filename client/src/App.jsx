@@ -18,6 +18,75 @@ function App() {
         localStorage.setItem('activeTab', activeTab);
     }, [activeTab]);
 
+    useEffect(() => {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
+
+        let isOverIframe = false;
+
+        const moveCursor = (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            if (!isOverIframe) {
+                cursor.classList.remove('hidden');
+            }
+        };
+
+        const handleIframeMouseEnter = () => {
+            isOverIframe = true;
+            cursor.classList.add('hidden');
+        };
+
+        const handleIframeMouseLeave = () => {
+            isOverIframe = false;
+            cursor.classList.remove('hidden');
+        };
+
+        const attachIframeListeners = () => {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach(iframe => {
+                iframe.addEventListener('mouseenter', handleIframeMouseEnter);
+                iframe.addEventListener('mouseleave', handleIframeMouseLeave);
+            });
+            return iframes;
+        };
+
+        // Initial attach
+        attachIframeListeners();
+
+        // Reattach after a delay to catch dynamically loaded iframes
+        const timeoutId = setTimeout(() => {
+            attachIframeListeners();
+        }, 1000);
+
+        const handleMouseLeave = () => {
+            cursor.classList.add('hidden');
+        };
+
+        const handleMouseEnter = () => {
+            cursor.classList.remove('hidden');
+        };
+
+        document.addEventListener('mousemove', moveCursor);
+        document.addEventListener('mouseleave', handleMouseLeave);
+        document.addEventListener('mouseenter', handleMouseEnter);
+
+        return () => {
+            clearTimeout(timeoutId);
+            document.removeEventListener('mousemove', moveCursor);
+            document.removeEventListener('mouseleave', handleMouseLeave);
+            document.removeEventListener('mouseenter', handleMouseEnter);
+            document.querySelectorAll('iframe').forEach(iframe => {
+                iframe.removeEventListener('mouseenter', handleIframeMouseEnter);
+                iframe.removeEventListener('mouseleave', handleIframeMouseLeave);
+            });
+            if (cursor.parentNode) {
+                document.body.removeChild(cursor);
+            }
+        };
+    }, []);
 
     useEffect(() => {
         fetch('http://localhost:3001/api/profile')
@@ -199,3 +268,5 @@ function App() {
 }
 
 export default App;
+
+<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EpgNDrdvITIgJ?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

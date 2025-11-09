@@ -17,18 +17,16 @@
     color: inherit;
     cursor: pointer;
     position: relative;
-    transition: transform 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
     padding: 16px;
     margin: -16px;
     border-radius: 8px;
-    border: 2px solid transparent;
 }
 
 .project-item:hover {
     transform: scale(1.02);
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.08);
-    border-color: #999;
 }
 
 .project-header {
