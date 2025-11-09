@@ -125,7 +125,14 @@ function App() {
                     <img
                         src={profile.photo}
                         alt={profile.name}
-                        className="profile-photo"
+                        style={{
+                            width: '152px',
+                            height: '152px',
+                            borderRadius: '12px',
+                            objectFit: 'cover',
+                            border: '2px solid #e5e5e5',
+                            flexShrink: 0
+                        }}
                     />
                     <iframe
                         style={{ borderRadius: '12px', border: 0, flex: 1, height: '152px' }}
