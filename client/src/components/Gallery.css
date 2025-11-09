@@ -170,3 +170,44 @@
 .modal-close:hover {
     background-color: var(--hover-bg);
 }
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        grid-auto-rows: 100px;
+        gap: 8px;
+    }
+
+    .gallery-item {
+        border: 2px solid var(--border-color);
+    }
+
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+
+    .modal-overlay {
+        padding: 10px;
+    }
+
+    .modal-content {
+        max-width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-image {
+        max-height: 70vh;
+    }
+
+    .modal-description {
+        padding: 16px;
+    }
+
+    .modal-description h3 {
+        font-size: 18px;
+    }
+
+    .modal-description p {
+        font-size: 14px;
+    }
+}

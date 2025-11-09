@@ -103,8 +103,21 @@
 }
 
 @media (max-width: 768px) {
+    .projects-list {
+        gap: 32px;
+    }
+
+    .project-item {
+        padding: 12px;
+        margin: -12px;
+    }
+
+    .project-item:hover {
+        transform: scale(1.02);
+    }
+
     .project-title {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .project-description {
@@ -115,8 +128,12 @@
         font-size: 14px;
     }
 
+    .project-technologies .tag {
+        font-size: 12px;
+        padding: 3px 8px;
+    }
+
     .project-preview {
-        right: 20px;
-        max-width: 280px;
+        display: none;
     }
 }

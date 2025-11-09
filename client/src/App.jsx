@@ -28,6 +28,12 @@ function App() {
         document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
     }, [darkMode]);
 
+    useEffect(() => {
+        if (profile?.photo) {
+            document.documentElement.style.setProperty('--profile-photo-url', `url(${profile.photo})`);
+        }
+    }, [profile]);
+
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
@@ -144,13 +150,14 @@ function App() {
                         />
                     </button>
                 </div>
-                <div className="fade-in-up" style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginBottom: '32px', width: '100%' }}>
+                <div className="fade-in-up profile-spotify-container" style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginBottom: '32px', width: '100%' }}>
                     <img
                         src={profile.photo}
                         alt={profile.name}
                         className="profile-photo-large"
                     />
                     <iframe
+                        className="spotify-embed"
                         style={{ borderRadius: '12px', border: 0, flex: 1, height: '152px' }}
                         src="https://open.spotify.com/embed/track/3xKsf9qdS1CyvXSMEid6g8?utm_source=generator&theme=0"
                         allowFullScreen=""
@@ -160,7 +167,7 @@ function App() {
                     ></iframe>
                 </div>
                 <p className="hero-bio fade-in-up" style={{ width: '100%' }}>{renderBio(profile.bio)}</p>
-                <hr className="content-divider fade-in-up" style={{ marginTop: '36px', marginBottom: '36px' }} />
+                {/* <hr className="content-divider fade-in-up" style={{ marginTop: '36px', marginBottom: '36px' }} /> */}
                 <nav className="nav fade-in-up" style={{ marginBottom: '12px', width: '100%' }}>
                     <a
                         href="#gallery"

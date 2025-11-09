@@ -127,6 +127,7 @@
 .hero-bio {
     line-height: 1.7;
     white-space: pre-line;
+    margin-bottom: 36px;
 }
 
 .inline-tag {
@@ -181,19 +182,85 @@
 
 @media (max-width: 768px) {
     .main-content {
-        padding: 40px 16px 0;
+        width: 100%;
+        padding: 20px 16px 0;
     }
 
-    .profile-photo {
+    .header-with-toggle {
+        margin-bottom: 24px !important;
+        flex-wrap: nowrap !important;
+        gap: 12px !important;
+    }
+
+    .header-with-toggle::before {
+        content: '';
         width: 48px;
         height: 48px;
+        border-radius: 50%;
+        background-image: var(--profile-photo-url);
+        background-size: cover;
+        background-position: center;
+        border: 2px solid var(--border-color);
+        flex-shrink: 0;
+        order: -1;
+    }
+
+    .profile-photo-large {
+        display: none !important;
     }
 
     .name {
-        font-size: 16px;
+        font-size: 20px !important;
+        white-space: normal !important;
+        line-height: 1.3;
+        flex: 1;
+    }
+
+    .dark-mode-toggle {
+        flex-shrink: 0;
     }
 
     .nav {
         flex-wrap: wrap;
+        gap: 8px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .nav a {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+
+    .content-area {
+        min-width: 100% !important;
+    }
+
+    .hero-bio {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+    }
+
+    .social-footer {
+        padding: 24px 0 !important;
+        gap: 12px;
+    }
+
+    .social-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .dark-mode-icon {
+        width: 22px;
+        height: 22px;
+    }
+
+    .profile-spotify-container {
+        display: none !important;
+    }
+
+    .spotify-embed {
+        display: none !important;
     }
 }
