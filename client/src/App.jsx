@@ -8,6 +8,7 @@ function App() {
     const [profile, setProfile] = useState(null);
     const [experience, setExperience] = useState([]);
     const [projects, setProjects] = useState([]);
+    const [gallery, setGallery] = useState([]);
     const [activeTab, setActiveTab] = useState(() => {
         return localStorage.getItem('activeTab') || 'about';
     });
@@ -31,6 +32,11 @@ function App() {
             .then(res => res.json())
             .then(data => setProjects(data))
             .catch(err => console.error('Error fetching projects:', err));
+
+        fetch('http://localhost:3001/api/gallery')
+            .then(res => res.json())
+            .then(data => setGallery(data))
+            .catch(err => console.error('Error fetching gallery:', err));
     }, []);
 
     if (!profile) {
@@ -40,13 +46,13 @@ function App() {
     const renderContent = () => {
         switch (activeTab) {
             case 'about':
-                return <Hero profile={profile} />;
+                return <Hero profile={profile} gallery={gallery} />;
             case 'experience':
                 return <Experience experience={experience} />;
             case 'projects':
                 return <Projects projects={projects} />;
             default:
-                return <Hero profile={profile} />;
+                return <Hero profile={profile} gallery={gallery} />;
         }
     };
 
@@ -55,7 +61,6 @@ function App() {
             <main className="main-content">
                 <div className="header-nav-container">
                     <div className="hero-header">
-                        <img src={profile.photo} alt={profile.name} className="profile-photo" />
                         <h1 className="name">{profile.name}</h1>
                     </div>
                     <nav className="nav">

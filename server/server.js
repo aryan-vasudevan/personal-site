@@ -89,9 +89,57 @@ app.get('/api/projects', (req, res) => {
             description: 'Create prod-level demos for computer vision models',
             technologies: ['Roboflow', 'Python'],
             demo: 'http://localhost:3001/static/detectionsmoother-demo.mp4',
-            github: 'https://github.com/aryan-vasudevan/detectionsmoother',
+            github: 'https://github.com/aryan-vasudevan/detect-smooth',
             elaboration: 'During my internship at Roboflow, I built an open-source tool for smoothing object detection results to create more polished demos and presentations.'
         }
+    ]);
+});
+
+app.get('/api/gallery', (req, res) => {
+    res.json([
+        {
+            id: 1,
+            src: 'http://localhost:3001/static/3.png',
+            title: 'Image Title',
+            description: 'Description of what this image means to you',
+            size: '2x2'  // 2x2 size
+        },
+        {
+            id: 2,
+            src: 'http://localhost:3001/static/6.jpg',
+            title: 'Image Title',
+            description: 'Description of what this image means to you',
+            size: '1x2'  // 2x2 size
+        },
+        {
+            id: 3,
+            src: 'http://localhost:3001/static/7.png',
+            title: 'Image Title',
+            description: 'Description of what this image means to you',
+            size: '2x3'  // 2x2 size
+        },
+        {
+            id: 4,
+            src: 'http://localhost:3001/static/1.png',
+            title: 'Image Title',
+            description: 'Description of what this image means to you',
+            size: '1x1'  // 2x2 size
+        },
+        {
+            id: 5,
+            src: 'http://localhost:3001/static/5.jpg',
+            title: 'Image Title',
+            description: 'Description of what this image means to you',
+            size: '1x1'  // 2x2 size
+        },
+        {
+            id: 6,
+            src: 'http://localhost:3001/static/2.png',
+            title: 'Image Title',
+            description: 'Description of what this image means to you',
+            size: '1x1'  // 2x2 size
+        },
+        
     ]);
 });
 

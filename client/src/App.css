@@ -23,9 +23,7 @@
 }
 
 .hero-header {
-    display: flex;
-    align-items: center;
-    gap: 24px;
+    width: 100%;
 }
 
 .profile-photo {
@@ -61,7 +59,7 @@
     width: 100%;
     border: none;
     border-top: 2px solid #e5e5e5;
-    margin: 0 0 32px 0;
+    margin: 16px 32px 32px 0;
 }
 
 .content-area {
@@ -71,7 +69,7 @@
 
 .section-title {
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 400;
     margin-bottom: 24px;
 }
 

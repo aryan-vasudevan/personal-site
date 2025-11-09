@@ -2,13 +2,6 @@
     margin-bottom: 60px;
 }
 
-.section-title {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 30px;
-    color: #1a1a1a;
-}
-
 .experience-list {
     display: flex;
     flex-direction: column;
