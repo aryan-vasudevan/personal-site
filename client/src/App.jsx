@@ -10,7 +10,7 @@ function App() {
     const [projects, setProjects] = useState([]);
     const [gallery, setGallery] = useState([]);
     const [activeTab, setActiveTab] = useState(() => {
-        return localStorage.getItem('activeTab') || 'about';
+        return localStorage.getItem('activeTab') || 'gallery';
     });
 
     useEffect(() => {
@@ -43,51 +43,106 @@ function App() {
         return <div className="loading">Loading...</div>;
     }
 
+    const renderBio = (text) => {
+        const wordsToHighlight = {
+            'Toronto': null,
+        };
+
+        const pattern = new RegExp(`(${Object.keys(wordsToHighlight).join('|')})`, 'gi');
+        const parts = text.split(pattern);
+
+        return parts.map((part, index) => {
+            const matchedWord = Object.keys(wordsToHighlight).find(
+                word => part.toLowerCase() === word.toLowerCase()
+            );
+
+            if (matchedWord) {
+                const href = wordsToHighlight[matchedWord];
+
+                if (href) {
+                    return (
+                        <a
+                            key={index}
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="tag inline-tag inline-tag-link"
+                        >
+                            {part}
+                        </a>
+                    );
+                } else {
+                    return <span key={index} className="tag inline-tag">{part}</span>;
+                }
+            }
+            return <span key={index}>{part}</span>;
+        });
+    };
+
     const renderContent = () => {
         switch (activeTab) {
-            case 'about':
-                return <Hero profile={profile} gallery={gallery} />;
+            case 'gallery':
+                return <Hero gallery={gallery} />;
             case 'experience':
                 return <Experience experience={experience} />;
             case 'projects':
                 return <Projects projects={projects} />;
             default:
-                return <Hero profile={profile} gallery={gallery} />;
+                return <Hero gallery={gallery} />;
         }
     };
 
     return (
         <div className="app">
             <main className="main-content">
-                <div className="header-nav-container">
-                    <div className="hero-header">
-                        <h1 className="name">{profile.name}</h1>
-                    </div>
-                    <nav className="nav">
-                        <a
-                            href="#about"
-                            className={activeTab === 'about' ? 'tag active' : 'tag'}
-                            onClick={(e) => { e.preventDefault(); setActiveTab('about'); }}
-                        >
-                            About
-                        </a>
-                        <a
-                            href="#experience"
-                            className={activeTab === 'experience' ? 'tag active' : 'tag'}
-                            onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
-                        >
-                            Experience
-                        </a>
-                        <a
-                            href="#projects"
-                            className={activeTab === 'projects' ? 'tag active' : 'tag'}
-                            onClick={(e) => { e.preventDefault(); setActiveTab('projects'); }}
-                        >
-                            Projects
-                        </a>
-                    </nav>
+                <h1 className="name" style={{ marginBottom: '24px', width: '100%' }}>{profile.name}</h1>
+                <div style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginBottom: '32px', width: '100%' }}>
+                    <img
+                        src={profile.photo}
+                        alt={profile.name}
+                        style={{
+                            width: '152px',
+                            height: '152px',
+                            borderRadius: '12px',
+                            objectFit: 'cover',
+                            border: '2px solid #e5e5e5',
+                            flexShrink: 0
+                        }}
+                    />
+                    <iframe
+                        style={{ borderRadius: '12px', border: 0, flex: 1, height: '152px' }}
+                        src="https://open.spotify.com/embed/playlist/0IREds4RiFiqJA4PoWLVSb?utm_source=generator&autoplay=1"
+                        allowFullScreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"
+                        title="Spotify Playlist"
+                    ></iframe>
                 </div>
-                <hr className="content-divider" />
+                <p className="hero-bio" style={{ width: '100%' }}>{renderBio(profile.bio)}</p>
+                <hr className="content-divider" style={{ marginTop: '36px', marginBottom: '36px' }} />
+                <nav className="nav" style={{ marginBottom: '32px', width: '100%' }}>
+                    <a
+                        href="#gallery"
+                        className={activeTab === 'gallery' ? 'tag active' : 'tag'}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('gallery'); }}
+                    >
+                        Gallery
+                    </a>
+                    <a
+                        href="#experience"
+                        className={activeTab === 'experience' ? 'tag active' : 'tag'}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
+                    >
+                        Experience
+                    </a>
+                    <a
+                        href="#projects"
+                        className={activeTab === 'projects' ? 'tag active' : 'tag'}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('projects'); }}
+                    >
+                        Projects
+                    </a>
+                </nav>
                 <div className="content-area">
                     {renderContent()}
                 </div>
