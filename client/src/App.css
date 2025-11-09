@@ -125,6 +125,7 @@
 
 .social-icon:hover {
     transform: scale(1.1);
+    opacity: 1;
 }
 
 .loading {

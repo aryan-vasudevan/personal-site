@@ -68,30 +68,35 @@ app.get('/api/projects', (req, res) => {
         {
             id: 1,
             title: 'AutoClose',
-            description: 'Close your door... autonomously',
             technologies: ['Swift', 'C++', 'Xcode', 'Roboflow', 'ESP32'],
             demo: 'http://localhost:3001/static/autoclose-demo.mp4',
             github: 'https://github.com/aryan-vasudevan/door-closer-esp32',
-            elaboration: 'I got tired of people not closing my door when I asked : /—It\'s an ESP32 microcontroller connected to a motor that automatically closes the door when it detects that it\'s open using an iOS app and a CoreML vision model trained with Roboflow.'
+            elaboration: 'I got tired of people not closing my door when I asked : /—It\'s an ESP32 microcontroller connected to a piston that automatically closes the door when it detects that it\'s open. It\'s using an iOS app and a CoreML vision model trained with Roboflow.'
         },
         {
             id: 2,
+            title: 'LogiCraft',
+            technologies: ['Java', 'Spigot API', 'Minecraft'],
+            demo: 'http://localhost:3001/static/logicraft-demo.mp4',
+            github: 'https://github.com/aryan-vasudevan/detect-smooth',
+            elaboration: 'Hackathon winner! Kids love Minecraft (me too), so why not teach them coding through it? This mod is hands-on and fun, teaching bitwise operation and logics with Minecraft redstone.'
+        },
+        {
+            id: 3,
             title: 'Eye Spy',
-            description: 'An AR solution to finding your glasses, all contained in an iOS app',
-            technologies: ['Swift', 'XCode', 'CoreML'],
+            technologies: ['Swift', 'XCode', 'CoreML', 'Roboflow'],
             demo: 'http://localhost:3001/static/eyespy-demo.mp4',
             github: 'https://github.com/aryan-vasudevan/eye-spy',
             elaboration: 'Losing your glasses is the worst. This app uses ARKit and a CoreML model on an iOS app to help you find your glasses by scanning your surroundings with your phone\'s camera.'
         },
         {
-            id: 3,
+            id: 4,
             title: 'DetectionSmoother',
-            description: 'Create prod-level demos for computer vision models',
             technologies: ['Roboflow', 'Python'],
             demo: 'http://localhost:3001/static/detectionsmoother-demo.mp4',
             github: 'https://github.com/aryan-vasudevan/detect-smooth',
             elaboration: 'During my internship at Roboflow, I built an open-source tool for smoothing object detection results to create more polished demos and presentations.'
-        }
+        },
     ]);
 });
 

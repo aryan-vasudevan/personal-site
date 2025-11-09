@@ -1,12 +1,13 @@
 .experience {
     margin-bottom: 60px;
+    position: relative;
 }
 
 .experience-list {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-height: 600px;
+    max-height: 640px;
     overflow-y: auto;
     border: 2px solid #e5e5e5;
     border-radius: 12px;
