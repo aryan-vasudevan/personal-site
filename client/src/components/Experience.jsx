@@ -67,8 +67,8 @@ function Experience({ experience }) {
     return (
         <section id="experience" className="experience">
             <div className="experience-list">
-                {experience.map((job) => (
-                    <div key={job.id} className="experience-item">
+                {experience.map((job, index) => (
+                    <div key={job.id} className="experience-item fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
                         <div className="experience-header">
                             <h3 className="company">{job.company}</h3>
                             <span className="period">{job.period}</span>

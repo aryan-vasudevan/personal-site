@@ -17,7 +17,8 @@ function Projects({ projects }) {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="project-item"
+                        className="project-item fade-in-up"
+                        style={{ animationDelay: `${index * 0.1}s` }}
                         onMouseEnter={() => setHoveredProject(index)}
                         onMouseLeave={() => setHoveredProject(null)}
                     >

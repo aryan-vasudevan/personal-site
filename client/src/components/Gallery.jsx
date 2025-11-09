@@ -32,8 +32,8 @@ function Gallery({ images }) {
                 {images.map((image, index) => (
                     <div
                         key={index}
-                        className="gallery-item"
-                        style={getGridStyle(image.size)}
+                        className="gallery-item fade-in-up"
+                        style={{ ...getGridStyle(image.size), animationDelay: `${index * 0.05}s` }}
                         onClick={() => openModal(image)}
                     >
                         <img src={image.src} alt={image.title} />
