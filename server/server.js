@@ -100,44 +100,44 @@ app.get('/api/gallery', (req, res) => {
         {
             id: 1,
             src: 'http://localhost:3001/static/3.png',
-            title: 'Image Title',
-            description: 'Description of what this image means to you',
-            size: '2x2'  // 2x2 size
+            title: 'Stargazers',
+            description: 'Stargazing shows you how small you are... in a good way!',
+            size: '2x2' 
         },
         {
             id: 2,
             src: 'http://localhost:3001/static/6.jpg',
-            title: 'Image Title',
-            description: 'Description of what this image means to you',
-            size: '1x2'  // 2x2 size
+            title: 'Eclipse in the 6ix',
+            description: 'The CN Tower splits the eclipse nicely!',
+            size: '1x2' 
         },
         {
             id: 3,
             src: 'http://localhost:3001/static/7.png',
-            title: 'Image Title',
-            description: 'Description of what this image means to you',
-            size: '2x3'  // 2x2 size
+            title: 'Ichigo Kurosaki',
+            description: 'From the screen to my pencil, my favorite anime character!',
+            size: '2x3'
         },
         {
             id: 4,
             src: 'http://localhost:3001/static/1.png',
-            title: 'Image Title',
-            description: 'Description of what this image means to you',
-            size: '1x1'  // 2x2 size
+            title: 'Poha',
+            description: 'Who said I can\'t cook?',
+            size: '1x1'
         },
         {
             id: 5,
             src: 'http://localhost:3001/static/5.jpg',
-            title: 'Image Title',
-            description: 'Description of what this image means to you',
-            size: '1x1'  // 2x2 size
+            title: 'Night Sky',
+            description: 'Clouds are random... but not always!',
+            size: '1x1'
         },
         {
             id: 6,
             src: 'http://localhost:3001/static/2.png',
-            title: 'Image Title',
-            description: 'Description of what this image means to you',
-            size: '1x1'  // 2x2 size
+            title: 'Resiliance and Resistance',
+            description: 'Pushing through the night, one circuit at a time.',
+            size: '1x1'
         },
         
     ]);
