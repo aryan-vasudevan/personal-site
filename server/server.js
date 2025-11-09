@@ -8,6 +8,7 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
 app.use(cors());
 app.use(express.json());
@@ -22,7 +23,7 @@ app.get('/api/profile', (req, res) => {
         title: 'Software Engineer',
         location: 'Toronto',
         bio: "Hey! Glad you're here. I'm Aryan, a passionate software engineer based in Toronto, with a love for building anything and everything. Let's play badminton sometime!",
-        photo: 'http://localhost:3001/static/profile.png',
+        photo: `${BASE_URL}/static/profile.png`,
         email: 'your.email@example.com',
         github: 'https://github.com/aryan-vasudevan',
         twitter: 'https://twitter.com/yourusername',
@@ -69,7 +70,7 @@ app.get('/api/projects', (req, res) => {
             id: 1,
             title: 'AutoClose',
             technologies: ['Swift', 'C++', 'Xcode', 'Roboflow', 'ESP32'],
-            demo: 'http://localhost:3001/static/autoclose-demo.mp4',
+            demo: `${BASE_URL}/static/autoclose-demo.mp4`,
             github: 'https://github.com/aryan-vasudevan/door-closer-esp32',
             elaboration: 'I got tired of people not closing my door when I asked : /—It\'s an ESP32 microcontroller connected to a piston that automatically closes the door when it detects that it\'s open. It\'s using an iOS app and a CoreML vision model trained with Roboflow.'
         },
@@ -77,7 +78,7 @@ app.get('/api/projects', (req, res) => {
             id: 2,
             title: 'LogiCraft',
             technologies: ['Java', 'Spigot API', 'Minecraft'],
-            demo: 'http://localhost:3001/static/logicraft-demo.mp4',
+            demo: `${BASE_URL}/static/logicraft-demo.mp4`,
             github: 'https://github.com/aryan-vasudevan/logicraft',
             elaboration: 'Hackathon winner! Kids love Minecraft (me too), so why not teach them coding through it? This mod is hands-on and fun, teaching bitwise operation and logics with Minecraft redstone.'
         },
@@ -85,7 +86,7 @@ app.get('/api/projects', (req, res) => {
             id: 3,
             title: 'Eye Spy',
             technologies: ['Swift', 'XCode', 'CoreML', 'Roboflow'],
-            demo: 'http://localhost:3001/static/eyespy-demo.mp4',
+            demo: `${BASE_URL}/static/eyespy-demo.mp4`,
             github: 'https://github.com/aryan-vasudevan/eye-spy',
             elaboration: 'Losing your glasses is the worst. This app uses ARKit and a CoreML model on an iOS app to help you find your glasses by scanning your surroundings with your phone\'s camera.'
         },
@@ -93,7 +94,7 @@ app.get('/api/projects', (req, res) => {
             id: 4,
             title: 'DetectionSmoother',
             technologies: ['Roboflow', 'Python'],
-            demo: 'http://localhost:3001/static/detectionsmoother-demo.mp4',
+            demo: `${BASE_URL}/static/detectionsmoother-demo.mp4`,
             github: 'https://github.com/aryan-vasudevan/detect-smooth',
             elaboration: 'During my internship at Roboflow, I built an open-source tool for smoothing object detection results to create more polished demos and presentations.'
         },
@@ -104,28 +105,28 @@ app.get('/api/gallery', (req, res) => {
     res.json([
         {
             id: 1,
-            src: 'http://localhost:3001/static/3.png',
+            src: `${BASE_URL}/static/3.png`,
             title: 'Stargazers',
             description: 'Stargazing shows you how small you are... in a good way!',
             size: '2x2' 
         },
         {
             id: 2,
-            src: 'http://localhost:3001/static/6.jpg',
+            src: `${BASE_URL}/static/6.jpg`,
             title: 'Eclipse in the 6ix',
             description: 'The CN Tower splits the eclipse nicely!',
             size: '1x2' 
         },
         {
             id: 3,
-            src: 'http://localhost:3001/static/7.png',
+            src: `${BASE_URL}/static/7.png`,
             title: 'Ichigo Kurosaki',
             description: 'From the screen to my pencil, my favorite anime character!',
             size: '2x3'
         },
         {
             id: 4,
-            src: 'http://localhost:3001/static/8.png',
+            src: `${BASE_URL}/static/8.png`,
             title: 'Purple?!',
             description: 'I love purple! My jacket is proof of that.',
             size: '1x2'
@@ -133,21 +134,21 @@ app.get('/api/gallery', (req, res) => {
         
         {
             id: 5,
-            src: 'http://localhost:3001/static/5.jpg',
+            src: `${BASE_URL}/static/5.jpg`,
             title: 'Night Sky',
             description: 'Clouds are random... but not always!',
             size: '1x1'
         },
         {
             id: 6,
-            src: 'http://localhost:3001/static/2.png',
+            src: `${BASE_URL}/static/2.png`,
             title: 'Resiliance and Resistance',
             description: 'Pushing through the night, one circuit at a time.',
             size: '1x1'
         },
         {
             id: 7,
-            src: 'http://localhost:3001/static/1.png',
+            src: `${BASE_URL}/static/1.png`,
             title: 'Poha',
             description: 'Who said I can\'t cook?',
             size: '1x1'

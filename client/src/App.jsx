@@ -39,22 +39,24 @@ function App() {
     };
 
     useEffect(() => {
-        fetch('http://localhost:3001/api/profile')
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+
+        fetch(`${API_URL}/api/profile`)
             .then(res => res.json())
             .then(data => setProfile(data))
             .catch(err => console.error('Error fetching profile:', err));
 
-        fetch('http://localhost:3001/api/experience')
+        fetch(`${API_URL}/api/experience`)
             .then(res => res.json())
             .then(data => setExperience(data))
             .catch(err => console.error('Error fetching experience:', err));
 
-        fetch('http://localhost:3001/api/projects')
+        fetch(`${API_URL}/api/projects`)
             .then(res => res.json())
             .then(data => setProjects(data))
             .catch(err => console.error('Error fetching projects:', err));
 
-        fetch('http://localhost:3001/api/gallery')
+        fetch(`${API_URL}/api/gallery`)
             .then(res => res.json())
             .then(data => setGallery(data))
             .catch(err => console.error('Error fetching gallery:', err));
@@ -144,7 +146,7 @@ function App() {
                     <h1 className="name" style={{ margin: 0 }}>{profile.name}</h1>
                     <button className="dark-mode-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
                         <img
-                            src={`http://localhost:3001/static/${darkMode ? 'sun' : 'moon'}.png`}
+                            src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/static/${darkMode ? 'sun' : 'moon'}.png`}
                             alt={darkMode ? 'Light mode' : 'Dark mode'}
                             className="dark-mode-icon"
                         />
