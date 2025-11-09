@@ -29,7 +29,6 @@ function Projects({ projects }) {
                                 ))}
                             </div>
                         </div>
-                        <p className="project-description">{project.description}</p>
                         {project.elaboration && (
                             <p className="project-elaboration">{project.elaboration}</p>
                         )}

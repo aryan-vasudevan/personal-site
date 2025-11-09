@@ -43,16 +43,22 @@
 
 .nav {
     display: flex;
-    gap: 8px;
+    gap: 16px;
 }
 
 .nav a {
-    transition: background-color 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-.nav a:hover,
+.nav a:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
 .nav a.active {
-    background-color: rgba(0, 0, 0, 0.05);
+    transform: scale(1.1);
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.08);
 }
 
 .content-divider {
@@ -92,11 +98,12 @@
 .inline-tag-link {
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: transform 0.2s ease;
+    display: inline-block;
 }
 
 .inline-tag-link:hover {
-    background-color: #e5e5e5;
+    transform: scale(1.05);
 }
 
 .social-footer {
@@ -110,14 +117,14 @@
 
 .social-icon {
     color: #666;
-    transition: color 0.2s ease;
+    transition: transform 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .social-icon:hover {
-    color: #1a1a1a;
+    transform: scale(1.1);
 }
 
 .loading {
