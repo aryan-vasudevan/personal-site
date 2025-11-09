@@ -124,12 +124,13 @@ app.get('/api/gallery', (req, res) => {
             size: '2x3'
         },
         {
-            id: 4,
-            src: 'http://localhost:3001/static/1.png',
-            title: 'Poha',
-            description: 'Who said I can\'t cook?',
-            size: '1x1'
+            id: 7,
+            src: 'http://localhost:3001/static/8.png',
+            title: 'Purple?!',
+            description: 'I love purple stuff, jackets too!',
+            size: '1x2'
         },
+        
         {
             id: 5,
             src: 'http://localhost:3001/static/5.jpg',
@@ -142,6 +143,14 @@ app.get('/api/gallery', (req, res) => {
             src: 'http://localhost:3001/static/2.png',
             title: 'Resiliance and Resistance',
             description: 'Pushing through the night, one circuit at a time.',
+            size: '1x1'
+        },
+        
+        {
+            id: 4,
+            src: 'http://localhost:3001/static/1.png',
+            title: 'Poha',
+            description: 'Who said I can\'t cook?',
             size: '1x1'
         },
         
