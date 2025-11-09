@@ -78,7 +78,7 @@ app.get('/api/projects', (req, res) => {
             title: 'LogiCraft',
             technologies: ['Java', 'Spigot API', 'Minecraft'],
             demo: 'http://localhost:3001/static/logicraft-demo.mp4',
-            github: 'https://github.com/aryan-vasudevan/detect-smooth',
+            github: 'https://github.com/aryan-vasudevan/logicraft',
             elaboration: 'Hackathon winner! Kids love Minecraft (me too), so why not teach them coding through it? This mod is hands-on and fun, teaching bitwise operation and logics with Minecraft redstone.'
         },
         {
@@ -125,11 +125,12 @@ app.get('/api/gallery', (req, res) => {
         },
         {
             id: 4,
-            src: 'http://localhost:3001/static/1.png',
-            title: 'Poha',
-            description: 'Who said I can\'t cook?',
-            size: '1x1'
+            src: 'http://localhost:3001/static/8.png',
+            title: 'Purple?!',
+            description: 'I love purple! My jacket is proof of that.',
+            size: '1x2'
         },
+        
         {
             id: 5,
             src: 'http://localhost:3001/static/5.jpg',
@@ -142,6 +143,13 @@ app.get('/api/gallery', (req, res) => {
             src: 'http://localhost:3001/static/2.png',
             title: 'Resiliance and Resistance',
             description: 'Pushing through the night, one circuit at a time.',
+            size: '1x1'
+        },
+        {
+            id: 7,
+            src: 'http://localhost:3001/static/1.png',
+            title: 'Poha',
+            description: 'Who said I can\'t cook?',
             size: '1x1'
         },
         

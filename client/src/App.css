@@ -47,18 +47,22 @@
 }
 
 .nav a {
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.3s ease, border-color 0.3s ease;
+    border: 2px solid transparent;
+    will-change: transform;
 }
 
 .nav a:hover {
     transform: scale(1.1);
     opacity: 1;
+    border-color: #a9a9a9;
 }
 
 .nav a.active {
     transform: scale(1.1);
     opacity: 1;
     background-color: rgba(0, 0, 0, 0.08);
+    border-color: #a9a9a9;
 }
 
 .content-divider {

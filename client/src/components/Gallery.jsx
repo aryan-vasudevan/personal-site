@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import './Gallery.css';
 
 function Gallery({ images }) {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [isClosing, setIsClosing] = useState(false);
 
     if (!images || images.length === 0) {
         return null;
@@ -10,10 +12,15 @@ function Gallery({ images }) {
 
     const openModal = (image) => {
         setSelectedImage(image);
+        setIsClosing(false);
     };
 
     const closeModal = () => {
-        setSelectedImage(null);
+        setIsClosing(true);
+        setTimeout(() => {
+            setSelectedImage(null);
+            setIsClosing(false);
+        }, 300); // Match animation duration
     };
 
     const getGridStyle = (size) => {
@@ -41,9 +48,9 @@ function Gallery({ images }) {
                 ))}
             </div>
 
-            {selectedImage && (
-                <div className="modal-overlay" onClick={closeModal}>
-                    <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            {selectedImage && createPortal(
+                <div className={`modal-overlay ${isClosing ? 'closing' : ''}`} onClick={closeModal}>
+                    <div className={`modal-content ${isClosing ? 'closing' : ''}`} onClick={(e) => e.stopPropagation()}>
                         <button className="modal-close" onClick={closeModal}>
                             ×
                         </button>
@@ -57,7 +64,8 @@ function Gallery({ images }) {
                             <p>{selectedImage.description}</p>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
         </div>
     );
