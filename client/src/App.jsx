@@ -150,7 +150,7 @@ function App() {
                     />
                     <iframe
                         style={{ borderRadius: '12px', border: 0, flex: 1, height: '152px' }}
-                        src="https://open.spotify.com/embed/playlist/37i9dQZF1EpgNDrdvITIgJ?utm_source=generator&theme=0"
+                        src="https://open.spotify.com/embed/track/3xKsf9qdS1CyvXSMEid6g8?utm_source=generator&theme=0"
                         allowFullScreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"
@@ -213,5 +213,3 @@ function App() {
 }
 
 export default App;
-
-<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1EpgNDrdvITIgJ?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
