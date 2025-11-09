@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Snowflakes from './components/Snowflakes';
 import './App.css';
 
 function App() {
@@ -131,6 +132,7 @@ function App() {
 
     return (
         <div className="app">
+            {darkMode && <Snowflakes />}
             <main className="main-content">
                 <div className="header-with-toggle fade-in-up" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '24px' }}>
                     <h1 className="name" style={{ margin: 0 }}>{profile.name}</h1>
