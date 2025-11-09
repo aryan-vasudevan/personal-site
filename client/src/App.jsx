@@ -140,13 +140,13 @@ function App() {
 
     return (
         <div className="app">
-            {darkMode}
+            {darkMode && <Snowflakes />}
             <main className="main-content">
                 <div className="header-with-toggle fade-in-up" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '24px' }}>
                     <h1 className="name" style={{ margin: 0 }}>{profile.name}</h1>
                     <button className="dark-mode-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
                         <img
-                            src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/static/${darkMode ? 'sun' : 'moon'}.png`}
+                            src={`${import.meta.env.VITE_API_URL || 'http://localhost:3001'}/static/${darkMode ? 'sun' : 'moon'}.jpg`}
                             alt={darkMode ? 'Light mode' : 'Dark mode'}
                             className="dark-mode-icon"
                         />

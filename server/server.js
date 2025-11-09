@@ -23,7 +23,7 @@ app.get('/api/profile', (req, res) => {
         title: 'Software Engineer',
         location: 'Toronto',
         bio: "Hey! Glad you're here. I'm Aryan, a passionate software engineer based in Toronto, with a love for building anything and everything. Let's play badminton sometime!",
-        photo: `${BASE_URL}/static/profile.png`,
+        photo: `${BASE_URL}/static/profile.jpg`,
         email: 'your.email@example.com',
         github: 'https://github.com/aryan-vasudevan',
         twitter: 'https://twitter.com/yourusername',
@@ -105,7 +105,7 @@ app.get('/api/gallery', (req, res) => {
     res.json([
         {
             id: 1,
-            src: `${BASE_URL}/static/3.png`,
+            src: `${BASE_URL}/static/3.jpg`,
             title: 'Stargazers',
             description: 'Stargazing shows you how small you are... in a good way!',
             size: '2x2' 
@@ -119,14 +119,14 @@ app.get('/api/gallery', (req, res) => {
         },
         {
             id: 3,
-            src: `${BASE_URL}/static/7.png`,
+            src: `${BASE_URL}/static/7.jpg`,
             title: 'Ichigo Kurosaki',
             description: 'From the screen to my pencil, my favorite anime character!',
             size: '2x3'
         },
         {
             id: 4,
-            src: `${BASE_URL}/static/8.png`,
+            src: `${BASE_URL}/static/8.jpg`,
             title: 'Purple?!',
             description: 'I love purple! My jacket is proof of that.',
             size: '1x2'
@@ -141,14 +141,14 @@ app.get('/api/gallery', (req, res) => {
         },
         {
             id: 6,
-            src: `${BASE_URL}/static/2.png`,
+            src: `${BASE_URL}/static/2.jpg`,
             title: 'Resiliance and Resistance',
             description: 'Pushing through the night, one circuit at a time.',
             size: '1x1'
         },
         {
             id: 7,
-            src: `${BASE_URL}/static/1.png`,
+            src: `${BASE_URL}/static/1.jpg`,
             title: 'Poha',
             description: 'Who said I can\'t cook?',
             size: '1x1'
