@@ -18,7 +18,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 // API routes
 app.get('/api/profile', (req, res) => {
     res.json({
-        name: 'Aryan Vasudevan',
+        name: 'Aryan Vasudevan 😴',
         title: 'Software Engineer',
         location: 'Toronto',
         bio: "Hey! Glad you're here. I'm Aryan, a passionate software engineer based in Toronto, with a love for building anything and everything. Let's play badminton sometime!",
