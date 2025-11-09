@@ -13,10 +13,23 @@ function App() {
     const [activeTab, setActiveTab] = useState(() => {
         return localStorage.getItem('activeTab') || 'gallery';
     });
+    const [darkMode, setDarkMode] = useState(() => {
+        const saved = localStorage.getItem('darkMode');
+        return saved !== null ? saved === 'true' : true; // Default to dark mode
+    });
 
     useEffect(() => {
         localStorage.setItem('activeTab', activeTab);
     }, [activeTab]);
+
+    useEffect(() => {
+        localStorage.setItem('darkMode', darkMode);
+        document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    }, [darkMode]);
+
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+    };
 
     useEffect(() => {
         fetch('http://localhost:3001/api/profile')
@@ -119,19 +132,21 @@ function App() {
     return (
         <div className="app">
             <main className="main-content">
-                <h1 className="name fade-in-up" style={{ marginBottom: '24px', width: '100%' }}>{profile.name}</h1>
+                <div className="header-with-toggle fade-in-up" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '24px' }}>
+                    <h1 className="name" style={{ margin: 0 }}>{profile.name}</h1>
+                    <button className="dark-mode-toggle" onClick={toggleDarkMode} aria-label="Toggle dark mode">
+                        <img
+                            src={`http://localhost:3001/static/${darkMode ? 'sun' : 'moon'}.png`}
+                            alt={darkMode ? 'Light mode' : 'Dark mode'}
+                            className="dark-mode-icon"
+                        />
+                    </button>
+                </div>
                 <div className="fade-in-up" style={{ display: 'flex', gap: '32px', alignItems: 'flex-start', marginBottom: '32px', width: '100%' }}>
                     <img
                         src={profile.photo}
                         alt={profile.name}
-                        style={{
-                            width: '152px',
-                            height: '152px',
-                            borderRadius: '12px',
-                            objectFit: 'cover',
-                            border: '2px solid #e5e5e5',
-                            flexShrink: 0
-                        }}
+                        className="profile-photo-large"
                     />
                     <iframe
                         style={{ borderRadius: '12px', border: 0, flex: 1, height: '152px' }}
@@ -153,18 +168,18 @@ function App() {
                         Gallery
                     </a>
                     <a
-                        href="#experience"
-                        className={activeTab === 'experience' ? 'tag active' : 'tag'}
-                        onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
-                    >
-                        Experience
-                    </a>
-                    <a
                         href="#projects"
                         className={activeTab === 'projects' ? 'tag active' : 'tag'}
                         onClick={(e) => { e.preventDefault(); setActiveTab('projects'); }}
                     >
                         Projects
+                    </a>
+                    <a
+                        href="#experience"
+                        className={activeTab === 'experience' ? 'tag active' : 'tag'}
+                        onClick={(e) => { e.preventDefault(); setActiveTab('experience'); }}
+                    >
+                        Experience
                     </a>
                 </nav>
                 <div key={activeTab} className="content-area fade-in-up">
