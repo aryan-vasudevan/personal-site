@@ -140,7 +140,7 @@ function App() {
 
     return (
         <div className="app">
-            {darkMode && <Snowflakes />}
+            {darkMode}
             <main className="main-content">
                 <div className="header-with-toggle fade-in-up" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', marginBottom: '24px' }}>
                     <h1 className="name" style={{ margin: 0 }}>{profile.name}</h1>
