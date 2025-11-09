@@ -9,6 +9,7 @@ function App() {
     const [experience, setExperience] = useState([]);
     const [projects, setProjects] = useState([]);
     const [gallery, setGallery] = useState([]);
+    const [assetsLoaded, setAssetsLoaded] = useState(false);
     const [activeTab, setActiveTab] = useState(() => {
         return localStorage.getItem('activeTab') || 'gallery';
     });
@@ -39,7 +40,30 @@ function App() {
             .catch(err => console.error('Error fetching gallery:', err));
     }, []);
 
-    if (!profile) {
+    useEffect(() => {
+        if (!profile || !gallery.length || !projects.length) return;
+
+        const imagesToLoad = [
+            profile.photo,
+            ...gallery.map(img => img.src),
+            ...projects.map(p => p.demo).filter(demo => demo && !demo.endsWith('.mp4'))
+        ];
+
+        const imagePromises = imagesToLoad.map(src => {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.onload = () => resolve();
+                img.onerror = () => resolve();
+                img.src = src;
+            });
+        });
+
+        Promise.all(imagePromises).then(() => {
+            setAssetsLoaded(true);
+        });
+    }, [profile, gallery, projects]);
+
+    if (!profile || !assetsLoaded) {
         return <div className="loading">Loading...</div>;
     }
 
