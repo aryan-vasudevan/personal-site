@@ -12,6 +12,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    zoom: min(1, calc(100vh / 1300px));
 }
 
 .header-nav-container {

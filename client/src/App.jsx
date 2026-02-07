@@ -161,7 +161,7 @@ function App() {
                     <iframe
                         className="spotify-embed"
                         style={{ borderRadius: '12px', border: 0, flex: 1, height: '152px' }}
-                        src="https://open.spotify.com/embed/track/3xKsf9qdS1CyvXSMEid6g8?utm_source=generator&theme=0"
+                        src="https://open.spotify.com/embed/track/1cZlBZwnwGPtYeRIeQcoFh?utm_source=generator&theme=1"
                         allowFullScreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"

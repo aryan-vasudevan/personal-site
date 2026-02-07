@@ -1,4 +1,5 @@
 .snowflakes-container {
+    --zoom: min(1, calc(100vh / 1300px));
     position: fixed;
     top: 0;
     left: 0;
@@ -9,15 +10,15 @@
     overflow: hidden;
     clip-path: polygon(
         0 0,
-        calc(50% - 500px) 0,
-        calc(50% - 500px) 100%,
+        calc(50% - 500px * var(--zoom)) 0,
+        calc(50% - 500px * var(--zoom)) 100%,
         0 100%,
         0 0,
-        calc(50% + 500px) 0,
+        calc(50% + 500px * var(--zoom)) 0,
         100% 0,
         100% 100%,
-        calc(50% + 500px) 100%,
-        calc(50% + 500px) 0
+        calc(50% + 500px * var(--zoom)) 100%,
+        calc(50% + 500px * var(--zoom)) 0
     );
 }
 
