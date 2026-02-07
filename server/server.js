@@ -127,8 +127,8 @@ app.get('/api/gallery', (req, res) => {
         {
             id: 4,
             src: `${BASE_URL}/static/8.jpg`,
-            title: 'Purple?!',
-            description: 'I love purple! My jacket is proof of that.',
+            title: 'Lego Chrysanthemum',
+            description: 'Lego and flowers, what more?',
             size: '1x2'
         },
         
@@ -143,13 +143,13 @@ app.get('/api/gallery', (req, res) => {
             id: 6,
             src: `${BASE_URL}/static/2.jpg`,
             title: 'Resiliance and Resistance',
-            description: 'Pushing through the night, one circuit at a time.',
+            description: 'Pushing through the night.',
             size: '1x1'
         },
         {
             id: 7,
             src: `${BASE_URL}/static/1.jpg`,
-            title: 'Poha',
+            title: 'Lego Chrysanthemum',
             description: 'Who said I can\'t cook?',
             size: '1x1'
         },
