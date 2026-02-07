@@ -120,8 +120,8 @@ app.get('/api/gallery', (req, res) => {
         {
             id: 3,
             src: `${BASE_URL}/static/7.jpg`,
-            title: 'Ichigo Kurosaki',
-            description: 'From the screen to my pencil, my favorite anime character!',
+            title: 'Reze',
+            description: 'Maybe in another universe :(',
             size: '2x3'
         },
         {
@@ -149,7 +149,7 @@ app.get('/api/gallery', (req, res) => {
         {
             id: 7,
             src: `${BASE_URL}/static/1.jpg`,
-            title: 'Lego Chrysanthemum',
+            title: 'Poha',
             description: 'Who said I can\'t cook?',
             size: '1x1'
         },

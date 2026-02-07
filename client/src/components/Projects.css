@@ -104,33 +104,44 @@
 
 @media (max-width: 768px) {
     .projects-list {
-        gap: 32px;
+        gap: 28px;
     }
 
     .project-item {
-        padding: 12px;
-        margin: -12px;
+        padding: 10px;
+        margin: -10px;
+        gap: 6px;
+    }
+
+    .project-item:nth-child(n+4) {
+        display: none;
     }
 
     .project-item:hover {
         transform: scale(1.02);
     }
 
+    .project-header {
+        gap: 8px;
+    }
+
     .project-title {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .project-description {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     .project-elaboration {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.5;
     }
 
     .project-technologies .tag {
-        font-size: 12px;
-        padding: 3px 8px;
+        font-size: 11px;
+        padding: 3px 7px;
     }
 
     .project-preview {

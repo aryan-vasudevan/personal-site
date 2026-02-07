@@ -56,27 +56,41 @@
 }
 
 @media (max-width: 768px) {
+    .experience {
+        margin-bottom: 20px;
+    }
+
     .experience-list {
-        gap: 28px;
-        max-height: 500px;
-        padding: 16px;
+        gap: 20px;
+        max-height: 50vh;
+        overflow-y: auto;
+        padding: 12px;
         border: 2px solid var(--border-color);
     }
 
+    .experience-item {
+        gap: 4px;
+    }
+
     .company {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .period {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .role {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .description {
-        font-size: 14px;
-        line-height: 1.6;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .description .tag.inline-tag {
+        font-size: 12px;
+        padding: 0 3px;
     }
 }
