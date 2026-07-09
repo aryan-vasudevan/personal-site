@@ -57,7 +57,7 @@ body {
 
 /* Custom Scrollbar Styles */
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -66,18 +66,22 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: var(--border-color);
-    border-radius: 6px;
-    border: 3px solid var(--bg-color);
+    border-radius: 2px;
+    border: none;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--border-hover);
 }
 
-/* Firefox scrollbar */
-* {
-    scrollbar-width: thin;
-    scrollbar-color: var(--border-color) var(--bg-color);
+/* Firefox scrollbar — scoped to Firefox only. Setting scrollbar-width in
+   Chromium switches it to the standard scrollbar and disables the 4px
+   ::-webkit-scrollbar sizing above, so it must not apply there. */
+@-moz-document url-prefix() {
+    * {
+        scrollbar-width: thin;
+        scrollbar-color: var(--border-color) var(--bg-color);
+    }
 }
 
 a {

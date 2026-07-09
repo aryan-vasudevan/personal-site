@@ -3,7 +3,7 @@
         "name": "Aryan Vasudevan",
         "title": "Software Engineer",
         "location": "Toronto",
-        "bio": "Hey! Glad you're here. I'm Aryan, a passionate software engineer based in Toronto, with a love for building anything and everything. Let's play badminton sometime!",
+        "bio": "Hey! I'm Aryan, a software engineer based in Toronto with a love for building literally EVERYTHING. I'm also studying Computer Science at the University of Waterloo. Let's play badminton sometime!",
         "photo": "profile.jpg",
         "email": "vasudevan.aryan@gmail.com",
         "github": "https://github.com/aryan-vasudevan",
@@ -15,7 +15,7 @@
             "company": "Roboflow (Y Combinator S20)",
             "role": "Support Engineer Intern",
             "period": "June 2026 - Aug 2026",
-            "description": "Drove user growth initiatives through hands-on testing, content creation, and technical documentation. Authored 12+ comprehensive project guides reaching 30,000+ users. Built app templates for RF-DETR models and developed YOLOv13 notebooks with Google Colab compatibility."
+            "description": "Built Linear feature requests and quality-of-life improvements for a platform serving 1M+ developers. Worked with TypeScript, Docker, and Node.js to redesign confusing self-serve pages, add search and filtering, and ship production code via GitHub Actions. Developed internal support tools, including a responsive TypeScript app mapping Roboflow's architecture to help onboard new support members. Provided assistance to individual and enterprise customers (up to $30k MRR) from user error to server-side issues while using Google Cloud Platform, Firebase, and network logs."
         },
         {
             "id": 2,
@@ -27,12 +27,20 @@
         {
             "id": 3,
             "company": "IgnitionHacks",
-            "role": "Judge, Organizer, Development Director",
-            "period": "Jan 2025 - Present",
-            "description": "Organized and judged at one of Canada's largest recurring university hackathons with 500+ annual participants. Evaluated projects for Roboflow Computer Vision prize track and provided technical mentorship to participants."
+            "role": "Director of Development",
+            "period": "Mar 2026 - Present",
+            "description": "Oversaw full-stack development of the IgnitionHacks website, and hacker portal."
         },
         {
             "id": 4,
+            "company": "IgnitionHacks",
+            "role": "Judge, Organizer, Developer",
+            "period": "Jan 2025 - Mar 2026",
+            "description": "Organized and judged at one of Canada's largest recurring university hackathons with 500+ annual participants. Evaluated projects for Roboflow Computer Vision prize track and provided technical mentorship to participants."
+        },
+        
+        {
+            "id": 5,
             "company": "BestBrains Learning Centre",
             "role": "Coding Instructor",
             "period": "June 2025 - Aug 2025",

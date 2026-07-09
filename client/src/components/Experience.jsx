@@ -7,20 +7,27 @@ function Experience({ experience }) {
 
     const renderHighlightedText = (text) => {
         const wordsToHighlight = [
-            'user growth initiatives',
             'hands-on testing',
+            'Linear',
+            '1M+',
+            'Typescript',
+            'Docker',
+            'Node.js',
+            '$30k MRR',
+            'Google Cloud Platform',
+            'Github Actions',
+            'Roboflow\'s architecture',
+            'Firebase',
+            '12+',
             'content creation',
             'technical documentation',
             'Y Combinator backed',
-            'comprehensive project guides and templates',
             'Python',
             'Swift',
             'Kotlin',
             'C++',
-            'app templates for RF-DETR',
             'Computer Vision',
             'YOLOv13 notebooks',
-            'Google Colab',
             'cross-platform resources',
             'iOS',
             'Android',
@@ -28,8 +35,6 @@ function Experience({ experience }) {
             'ESP32',
             'Organized',
             'judged',
-            'Canada\'s largest recurring university hackathons',
-            'Roboflow Computer Vision prize track',
             'AI/ML implementation',
             'technical mentorship',
             'computer vision',
@@ -45,7 +50,9 @@ function Experience({ experience }) {
             'Microsoft webservices',
             'openai',
             'openpyxl',
-            'Advanced Functions'
+            'Advanced Functions',
+            '30,000+',
+            'full-stack'
         ];
 
         // Create pattern that matches any of the phrases/words
@@ -64,17 +71,36 @@ function Experience({ experience }) {
         });
     };
 
+    // Group roles that share a company into a single block, keeping the order
+    // in which each company first appears in content.json.
+    const companies = [];
+    const indexByCompany = new Map();
+    experience.forEach((job) => {
+        if (indexByCompany.has(job.company)) {
+            companies[indexByCompany.get(job.company)].roles.push(job);
+        } else {
+            indexByCompany.set(job.company, companies.length);
+            companies.push({ company: job.company, roles: [job] });
+        }
+    });
+
     return (
         <section id="experience" className="experience">
             <div className="experience-list">
-                {experience.map((job, index) => (
-                    <div key={job.id} className="experience-item fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                        <div className="experience-header">
-                            <h3 className="company">{job.company}</h3>
-                            <span className="period">{job.period}</span>
+                {companies.map((group, index) => (
+                    <div key={group.company} className="experience-item fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
+                        <h3 className="company">{group.company}</h3>
+                        <div className={`role-list${group.roles.length > 1 ? ' grouped' : ''}`}>
+                            {group.roles.map((job) => (
+                                <div key={job.id} className="role-entry">
+                                    <div className="role-header">
+                                        <p className="role">{job.role}</p>
+                                        <span className="period">{job.period}</span>
+                                    </div>
+                                    <p className="description">{renderHighlightedText(job.description)}</p>
+                                </div>
+                            ))}
                         </div>
-                        <p className="role">{job.role}</p>
-                        <p className="description">{renderHighlightedText(job.description)}</p>
                     </div>
                 ))}
             </div>
