@@ -39,27 +39,27 @@
 }
 
 .company {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--text-color);
     transition: color 0.3s ease;
 }
 
 .period {
-    font-size: 14px;
+    font-size: 0.72rem;
     color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
 .role {
-    font-size: 15px;
+    font-size: 0.72rem;
     color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
 .description {
-    font-size: 15px;
-    line-height: 1.8;
+    font-size: 0.8rem;
+    line-height: 1.7;
     color: var(--text-color);
     transition: color 0.3s ease;
 }
