@@ -9,7 +9,25 @@
     gap: 40px;
     max-height: 640px;
     overflow-y: auto;
-    padding: 8px 16px 0 0;
+    padding: 8px 32px 0 0;
+}
+
+.experience-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.experience-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.experience-list::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 2px;
+    border: none;
+}
+
+.experience-list::-webkit-scrollbar-thumb:hover {
+    background: var(--border-hover);
 }
 
 .experience-list::after {
@@ -53,12 +71,13 @@
     position: relative;
 }
 
-/* Dot marker for each role. */
+/* Dot marker, vertically centered on the role title line. */
 .role-list.grouped .role-entry::before {
     content: '';
     position: absolute;
     left: -24px;
-    top: 8px;
+    top: 0.62em;
+    transform: translateY(-50%);
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -72,7 +91,7 @@
     content: '';
     position: absolute;
     left: -21px;
-    top: 12px;
+    top: 0.62em;
     width: 2px;
     height: calc(100% + 20px);
     background: var(--border-color);
