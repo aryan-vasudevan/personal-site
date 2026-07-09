@@ -9,7 +9,7 @@
     gap: 40px;
     max-height: 640px;
     overflow-y: auto;
-    padding: 24px 16px 0 0;
+    padding: 8px 16px 0 0;
 }
 
 .experience-list::after {
@@ -27,10 +27,65 @@
 .experience-item {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 }
 
-.experience-header {
+.company {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.role-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* When a company has more than one role, connect them with a timeline. */
+.role-list.grouped {
+    padding-left: 24px;
+    margin-left: 3px;
+}
+
+.role-list.grouped .role-entry {
+    position: relative;
+}
+
+/* Dot marker for each role. */
+.role-list.grouped .role-entry::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    z-index: 1;
+    transition: background-color 0.3s ease;
+}
+
+/* Connector segment running from each dot to the next (not past the last). */
+.role-list.grouped .role-entry:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: -21px;
+    top: 12px;
+    width: 2px;
+    height: calc(100% + 20px);
+    background: var(--border-color);
+    transition: background-color 0.3s ease;
+}
+
+.role-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.role-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -38,27 +93,20 @@
     gap: 8px;
 }
 
-.company {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-color);
-    transition: color 0.3s ease;
-}
-
 .period {
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
 .role {
-    font-size: 0.72rem;
+    font-size: 0.78rem;
     color: var(--text-secondary);
     transition: color 0.3s ease;
 }
 
 .description {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     line-height: 1.7;
     color: var(--text-color);
     transition: color 0.3s ease;

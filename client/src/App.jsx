@@ -108,6 +108,8 @@ function App() {
     const renderBio = (text) => {
         const wordsToHighlight = {
             'Toronto': null,
+            'Computer Science': null,
+            'University of Waterloo': null,
         };
 
         const pattern = new RegExp(`(${Object.keys(wordsToHighlight).join('|')})`, 'gi');
