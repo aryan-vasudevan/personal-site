@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import path from 'path';
+import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -10,6 +11,18 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`;
 
+// Load site content from JSON. Asset fields hold bare filenames that live in
+// public/ and are expanded to absolute URLs at serve time.
+const content = JSON.parse(
+    readFileSync(path.join(__dirname, 'data', 'content.json'), 'utf-8')
+);
+
+const asset = (file) => `${BASE_URL}/static/${file}`;
+
+const profile = { ...content.profile, photo: asset(content.profile.photo) };
+const projects = content.projects.map((p) => ({ ...p, demo: asset(p.demo) }));
+const gallery = content.gallery.map((g) => ({ ...g, src: asset(g.src) }));
+
 app.use(cors());
 app.use(express.json());
 
@@ -18,143 +31,19 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // API routes
 app.get('/api/profile', (req, res) => {
-    res.json({
-        name: 'Aryan Vasudevan',
-        title: 'Software Engineer',
-        location: 'Toronto',
-        bio: "Hey! Glad you're here. I'm Aryan, a passionate software engineer based in Toronto, with a love for building anything and everything. Let's play badminton sometime!",
-        photo: `${BASE_URL}/static/profile.jpg`,
-        email: 'your.email@example.com',
-        github: 'https://github.com/aryan-vasudevan',
-        twitter: 'https://twitter.com/yourusername',
-        linkedin: 'https://linkedin.com/in/aryan-vasudevan'
-    });
+    res.json(profile);
 });
 
 app.get('/api/experience', (req, res) => {
-    res.json([
-        {
-            id: 1,
-            company: 'Roboflow (Y Combinator S20)',
-            role: 'Machine Learning Intern, Contributor, Growth',
-            period: 'June 2025 - Present',
-            description: 'Drove user growth initiatives through hands-on testing, content creation, and technical documentation. Authored 12+ comprehensive project guides reaching 30,000+ users. Built app templates for RF-DETR models and developed YOLOv13 notebooks with Google Colab compatibility.'
-        },
-        {
-            id: 2,
-            company: 'IgnitionHacks',
-            role: 'Judge, Organizer',
-            period: 'June 2025 - Aug 2025',
-            description: 'Organized and judged at one of Canada\'s largest recurring university hackathons with 500+ annual participants. Evaluated projects for Roboflow Computer Vision prize track and provided technical mentorship to participants.'
-        },
-        {
-            id: 3,
-            company: 'BestBrains Learning Centre',
-            role: 'Coding Instructor',
-            period: 'June 2025 - Aug 2025',
-            description: 'Taught web development fundamentals including HTML, CSS, and JavaScript. Instructed Python programming concepts and introduced visual programming with Scratch to younger students.'
-        },
-        {
-            id: 4,
-            company: 'TopChild Learning Centre',
-            role: 'Software Engineer, Functions Tutor',
-            period: 'Oct 2024 - Present',
-            description: 'Integrated AI generated questions into an online quiz feature built with Microsoft webservices. Designed an application to automate question making process in Python using openai and openpyxl. Taught Advanced Functions and challenging math concepts.'
-        }
-    ]);
+    res.json(content.experience);
 });
 
 app.get('/api/projects', (req, res) => {
-    res.json([
-        {
-            id: 1,
-            title: 'AutoClose',
-            technologies: ['Swift', 'C++', 'Xcode', 'Roboflow', 'ESP32'],
-            demo: `${BASE_URL}/static/autoclose-demo.mp4`,
-            github: 'https://github.com/aryan-vasudevan/door-closer-esp32',
-            elaboration: 'I got tired of people not closing my door when I asked : /—It\'s an ESP32 microcontroller connected to a piston that automatically closes the door when it detects that it\'s open. It\'s using an iOS app and a CoreML vision model trained with Roboflow.'
-        },
-        {
-            id: 2,
-            title: 'LogiCraft',
-            technologies: ['Java', 'Spigot API', 'Minecraft'],
-            demo: `${BASE_URL}/static/logicraft-demo.mp4`,
-            github: 'https://github.com/aryan-vasudevan/logicraft',
-            elaboration: 'Hackathon winner! Kids love Minecraft (me too), so why not teach them coding through it? This mod is hands-on and fun, teaching bitwise operation and logics with Minecraft redstone.'
-        },
-        {
-            id: 3,
-            title: 'Eye Spy',
-            technologies: ['Swift', 'XCode', 'CoreML', 'Roboflow'],
-            demo: `${BASE_URL}/static/eyespy-demo.mp4`,
-            github: 'https://github.com/aryan-vasudevan/eye-spy',
-            elaboration: 'Losing your glasses is the worst. This app uses ARKit and a CoreML model on an iOS app to help you find your glasses by scanning your surroundings with your phone\'s camera.'
-        },
-        {
-            id: 4,
-            title: 'DetectionSmoother',
-            technologies: ['Roboflow', 'Python'],
-            demo: `${BASE_URL}/static/detectionsmoother-demo.mp4`,
-            github: 'https://github.com/aryan-vasudevan/detect-smooth',
-            elaboration: 'During my internship at Roboflow, I built an open-source tool for smoothing object detection results to create more polished demos and presentations.'
-        },
-    ]);
+    res.json(projects);
 });
 
 app.get('/api/gallery', (req, res) => {
-    res.json([
-        {
-            id: 1,
-            src: `${BASE_URL}/static/3.jpg`,
-            title: 'Stargazers',
-            description: 'Stargazing shows you how small you are... in a good way!',
-            size: '2x2' 
-        },
-        {
-            id: 2,
-            src: `${BASE_URL}/static/6.jpg`,
-            title: 'Eclipse in the 6ix',
-            description: 'The CN Tower splits the eclipse nicely!',
-            size: '1x2' 
-        },
-        {
-            id: 3,
-            src: `${BASE_URL}/static/7.jpg`,
-            title: 'Reze',
-            description: 'Maybe in another universe :(',
-            size: '2x3'
-        },
-        {
-            id: 4,
-            src: `${BASE_URL}/static/8.jpg`,
-            title: 'Lego Chrysanthemum',
-            description: 'Lego and flowers, what more?',
-            size: '1x2'
-        },
-        
-        {
-            id: 5,
-            src: `${BASE_URL}/static/5.jpg`,
-            title: 'Night Sky',
-            description: 'Clouds are random... but not always!',
-            size: '1x1'
-        },
-        {
-            id: 6,
-            src: `${BASE_URL}/static/2.jpg`,
-            title: 'Resiliance and Resistance',
-            description: 'Pushing through the night.',
-            size: '1x1'
-        },
-        {
-            id: 7,
-            src: `${BASE_URL}/static/1.jpg`,
-            title: 'Poha',
-            description: 'Who said I can\'t cook?',
-            size: '1x1'
-        },
-        
-    ]);
+    res.json(gallery);
 });
 
 // Serve static files from React app in production
