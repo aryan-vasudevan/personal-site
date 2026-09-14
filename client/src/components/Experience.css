@@ -1,13 +1,17 @@
 .experience {
-    margin-bottom: 60px;
     position: relative;
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .experience-list {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-height: 640px;
+    flex: 1 1 auto;
+    min-height: 0;
     overflow-y: auto;
     padding: 8px 32px 0 0;
 }
@@ -133,13 +137,11 @@
 
 @media (max-width: 768px) {
     .experience {
-        margin-bottom: 20px;
+        margin-bottom: 0;
     }
 
     .experience-list {
         gap: 20px;
-        max-height: 50vh;
-        overflow-y: auto;
         padding: 12px 12px 0;
     }
 
