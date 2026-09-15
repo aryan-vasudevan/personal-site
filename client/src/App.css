@@ -169,6 +169,11 @@
     transform: scale(1.05);
 }
 
+/* Mobile-only: the socials sit beside the name instead of in a footer. */
+.header-socials {
+    display: none;
+}
+
 .social-footer {
     display: flex;
     gap: 16px;
@@ -202,10 +207,20 @@
 }
 
 @media (max-width: 768px) {
+    /* The shell stops being a fixed-height frame; the document scrolls instead. */
+    .app {
+        height: auto;
+        min-height: 100dvh;
+        overflow: visible;
+    }
+
+    /* The hidden footer used to supply the bottom breathing room; the shell
+       owns it now so every tab ends the same way. */
     .main-content {
         width: 100%;
-        padding: 24px 16px 0;
+        padding: 24px 16px 28px;
         zoom: 1;
+        overflow: visible;
     }
 
     .header-with-toggle {
@@ -255,6 +270,8 @@
 
     .content-area {
         min-width: 100% !important;
+        flex: 0 0 auto;
+        overflow: visible;
     }
 
     .hero-bio {
@@ -263,9 +280,17 @@
         margin-bottom: 24px;
     }
 
+    .header-socials {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-shrink: 0;
+    }
+
+    /* The footer's job moved into the header, so the page just ends after
+       the content. */
     .social-footer {
-        padding: 32px 0 16px !important;
-        gap: 12px;
+        display: none;
     }
 
     .social-icon svg {
@@ -278,13 +303,9 @@
         height: 22px;
     }
 
+    /* The photo moves into the header on mobile and the player is dropped, so
+       the whole row goes with it. !important beats the inline display: flex. */
     .profile-spotify-container {
-        gap: 0 !important;
-        margin-bottom: 20px !important;
-    }
-
-    .spotify-embed {
-        height: 80px !important;
-        border-radius: 8px !important;
+        display: none !important;
     }
 }

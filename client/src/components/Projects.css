@@ -113,10 +113,6 @@
         gap: 6px;
     }
 
-    .project-item:nth-child(n+4) {
-        display: none;
-    }
-
     .project-item:hover {
         transform: scale(1.02);
     }

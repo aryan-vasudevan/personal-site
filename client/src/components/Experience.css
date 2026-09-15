@@ -136,13 +136,22 @@
 }
 
 @media (max-width: 768px) {
+    /* No inner scroller on mobile — the list grows and the page scrolls. */
     .experience {
         margin-bottom: 0;
+        flex: 0 0 auto;
     }
 
     .experience-list {
         gap: 20px;
-        padding: 12px 12px 0;
+        padding: 0;
+        flex: 0 0 auto;
+        overflow: visible;
+    }
+
+    /* The bottom fade only made sense against a clipped scroll container. */
+    .experience-list::after {
+        display: none;
     }
 
     .experience-item {

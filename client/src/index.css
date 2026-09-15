@@ -92,6 +92,26 @@ body {
     }
 }
 
+/* Mobile: the page scrolls as one document — the viewport-locked shell above
+   is desktop-only, and the native overlay scroll indicator replaces the
+   custom scrollbar. */
+@media (max-width: 768px) {
+    html,
+    body,
+    #root {
+        height: auto;
+        min-height: 100%;
+    }
+
+    body {
+        overflow: visible;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+}
+
 a {
     color: var(--text-color);
     text-decoration: none;
